@@ -9,23 +9,16 @@ public class TodoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column()
     private String name;
 
-    @Column
+    @Column()
     private boolean completed;
 
-    @Column
-    @ManyToOne //Muchos a uno, muchas tareas pueden pertenecear a una lista
-    @JoinColumn(name = "idList", insertable = false, updatable = false)
-    private Long groupListId;
+    @Column()
+    private Long listId;
 
-    public Long getGroupListId() {
-        return groupListId;
-    }
-
-    public void setGroupListId(Long groupListId) {
-        this.groupListId = groupListId;
+    public TodoEntity() {
     }
 
     public Long getId() {
@@ -50,5 +43,13 @@ public class TodoEntity {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Long getListId() {
+        return listId;
+    }
+
+    public void setListId(Long listId) {
+        this.listId = listId;
     }
 }

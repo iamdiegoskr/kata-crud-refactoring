@@ -16,13 +16,15 @@ public class TodoEntity {
     private boolean completed;
 
     @Column
-    private String groupListId;
+    @ManyToOne //Muchos a uno, muchas tareas pueden pertenecear a una lista
+    @JoinColumn(name = "idList", insertable = false, updatable = false)
+    private Long groupListId;
 
-    public String getGroupListId() {
+    public Long getGroupListId() {
         return groupListId;
     }
 
-    public void setGroupListId(String groupListId) {
+    public void setGroupListId(Long groupListId) {
         this.groupListId = groupListId;
     }
 

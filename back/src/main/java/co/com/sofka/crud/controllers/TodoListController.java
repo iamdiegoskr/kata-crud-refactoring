@@ -1,8 +1,7 @@
 package co.com.sofka.crud.controllers;
 
 import co.com.sofka.crud.dtos.TodoListDto;
-import co.com.sofka.crud.entities.TodoListEntity;
-import co.com.sofka.crud.services.TodoListService;
+import co.com.sofka.crud.services.interfaces.ITodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +15,7 @@ import java.util.List;
 public class TodoListController {
 
     @Autowired
-    private TodoListService service;
+    private ITodoListService service;
 
     @GetMapping()
     public List<TodoListDto> getAllList(){

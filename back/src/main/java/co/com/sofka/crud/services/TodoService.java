@@ -36,7 +36,8 @@ public class TodoService {
     }
 
     public TodoDto get(Long id){
-        return repository.findById(id).map(todoEntity -> mapper.toTodoDto(todoEntity))
+        return repository.findById(id)
+                .map(todoEntity -> mapper.toTodoDto(todoEntity))
                 .orElseThrow();
     }
 

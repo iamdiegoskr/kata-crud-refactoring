@@ -16,6 +16,4 @@ public interface TodoMapper {
 
     @InheritInverseConfiguration
     TodoEntity toTodoEntity(TodoDto todoDto);
-
-
 }

@@ -1,5 +1,6 @@
 package co.com.sofka.crud.controllers;
 
+import co.com.sofka.crud.dtos.TodoListDto;
 import co.com.sofka.crud.entities.TodoListEntity;
 import co.com.sofka.crud.services.TodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +19,20 @@ public class TodoListController {
     private TodoListService service;
 
     @GetMapping()
-    public List<TodoListEntity> getAllList(){
+    public List<TodoListDto> getAllList(){
         return service.getAllListTask();
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<TodoListEntity> getListById(@PathVariable() Long id){
-        return service.getListById(id).map(todoListEntity -> {
-            return new ResponseEntity<>(todoListEntity, HttpStatus.OK);
-        }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    public ResponseEntity<TodoListDto> getListById(@PathVariable() Long id){
+        return service.getListById(id)
+                .map(todoListDto -> new ResponseEntity<>(todoListDto, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping(value = "/create")
-    public ResponseEntity<TodoListEntity> saveList(@RequestBody TodoListEntity todoListEntity){
-        return new ResponseEntity<>(service.saveList(todoListEntity),HttpStatus.CREATED);
+    public ResponseEntity<TodoListDto> saveList(@RequestBody TodoListDto todoListDto){
+        return new ResponseEntity<>(service.saveList(todoListDto),HttpStatus.CREATED);
     }
 
     @DeleteMapping(value = "delete/{id}")

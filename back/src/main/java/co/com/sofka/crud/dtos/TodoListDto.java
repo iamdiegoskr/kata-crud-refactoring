@@ -8,7 +8,7 @@ public class TodoListDto {
 
     private Long id;
     private String name;
-    private Set<TodoEntity> todos;
+    private Set<TodoDto> todos;
 
     public Long getId() {
         return id;
@@ -26,11 +26,11 @@ public class TodoListDto {
         this.name = name;
     }
 
-    public Set<TodoEntity> getTodos() {
+    public Set<TodoDto> getTodos() {
         return todos;
     }
 
-    public void setTodos(Set<TodoEntity> todos) {
+    public void setTodos(Set<TodoDto> todos) {
         this.todos = todos;
     }
 }

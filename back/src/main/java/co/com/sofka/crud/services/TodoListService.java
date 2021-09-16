@@ -1,6 +1,8 @@
 package co.com.sofka.crud.services;
 
+import co.com.sofka.crud.dtos.TodoListDto;
 import co.com.sofka.crud.entities.TodoListEntity;
+import co.com.sofka.crud.mappers.TodoListMapper;
 import co.com.sofka.crud.repositories.TodoListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,16 +16,20 @@ public class TodoListService {
     @Autowired
     private TodoListRepository todoListRepository;
 
-    public List<TodoListEntity> getAllListTask(){
-        return (List<TodoListEntity>) todoListRepository.findAll();
+    @Autowired
+    private TodoListMapper mapper;
+
+    public List<TodoListDto> getAllListTask(){
+        return mapper.toTodoListsDto((List<TodoListEntity>) todoListRepository.findAll());
     }
 
-    public Optional<TodoListEntity> getListById(Long id){
-        return todoListRepository.findById(id);
+    public Optional<TodoListDto> getListById(Long id){
+        return todoListRepository.findById(id).map(todoListEntity -> mapper.toTodoListDto(todoListEntity));
     }
 
-    public TodoListEntity saveList(TodoListEntity todoListEntity){
-        return todoListRepository.save(todoListEntity);
+    public TodoListDto saveList(TodoListDto todoListDto){
+        TodoListEntity todoListEntity = mapper.toTodoListEntity(todoListDto);
+        return mapper.toTodoListDto(todoListRepository.save(todoListEntity));
     }
 
     public Boolean deleteList(Long id){

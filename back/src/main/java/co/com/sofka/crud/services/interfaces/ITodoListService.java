@@ -10,6 +10,7 @@ public interface ITodoListService {
     public List<TodoListDto> getAllListTask();
     public Optional<TodoListDto> getListById(Long id);
     public TodoListDto saveList(TodoListDto todoListDto);
-    public Boolean deleteList(Long id);
+    public boolean deleteList(Long id);
+    public TodoListDto update(TodoListDto todoListDto);
 
 }

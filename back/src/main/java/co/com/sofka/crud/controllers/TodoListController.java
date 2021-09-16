@@ -42,4 +42,15 @@ public class TodoListController {
         }
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
+
+
+    @PutMapping(value = "/update")
+    public ResponseEntity<TodoListDto> updateList(@RequestBody TodoListDto todoListDto){
+        if(todoListDto.getId()!=null){
+            return new ResponseEntity<>(service.update(todoListDto),HttpStatus.OK);
+        }
+
+        throw new RuntimeException("No existe el id para actualziar");
+    }
+
 }

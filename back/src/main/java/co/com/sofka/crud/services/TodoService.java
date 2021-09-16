@@ -5,6 +5,7 @@ import co.com.sofka.crud.repositories.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class TodoService {
 
@@ -26,5 +27,6 @@ public class TodoService {
     public TodoEntity get(Long id){
          return repository.findById(id).orElseThrow();
     }
+
 
 }

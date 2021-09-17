@@ -1,5 +1,5 @@
 import React, { useContext, useReducer, useEffect, useRef, useState, createContext } from 'react';
-import { Store } from '../App';
+import { Store } from "../store/Store";
 
 const HOST_API = "http://localhost:8080/api";
 
@@ -58,6 +58,8 @@ const Form = () => {
             formRef.current.reset();
         });
     }
+
+
     return <form ref={formRef}>
         <input
         type="text"

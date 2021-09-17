@@ -1,37 +1,34 @@
-import React, { useContext, useReducer, useEffect, useRef, useState, createContext } from 'react';
-import { Store } from "../store/Store";
+import React, { useContext, useRef, useState } from 'react';
+import {Store} from '../store/Store'
+
 
 const HOST_API = "http://localhost:8080/api";
 
-const Form = (props) => {
+const TodoForm = ({ TodoListId }) => {
 
     const formRef = useRef(null);
     const { dispatch, state: { todo } } = useContext(Store);
     const item = todo.item;
     const [state, setState] = useState(item);
 
-    // const formRef = useRef(null);
-    // const { dispatch } = useContext(Store);
-    // const item = todo.item[listId] ? todo.item[listId] : {};
-    // const [state, setState] = useState(item);
-
     const onAdd = (event) => {
-    event.preventDefault();
+        event.preventDefault();
 
-    const request = {
+        const request = {
         name: state.name,
         id: null,
-        completed: false
-    };
+        completed: false,
+        groupListId: TodoListId
+        };
 
 
-    fetch(HOST_API + "/todo", {
+        fetch(HOST_API + "/todo", {
         method: "POST",
         body: JSON.stringify(request),
         headers: {
             'Content-Type': 'application/json'
         }
-    })
+        })
         .then(response => response.json())
         .then((todo) => {
             dispatch({ type: "add-item", item: todo });
@@ -43,20 +40,21 @@ const Form = (props) => {
     const onEdit = (event) => {
         event.preventDefault();
 
-    const request = {
+        const request = {
         name: state.name,
         id: item.id,
-        isCompleted: item.isCompleted
-    };
+        isCompleted: item.isCompleted,
+        groupListId: TodoListId
+        };
 
 
-    fetch(HOST_API + "/todo", {
+        fetch(HOST_API + "/todo", {
         method: "PUT",
         body: JSON.stringify(request),
         headers: {
             'Content-Type': 'application/json'
         }
-    })
+        })
         .then(response => response.json())
         .then((todo) => {
             dispatch({ type: "update-item", item: todo });
@@ -65,22 +63,18 @@ const Form = (props) => {
         });
     }
 
-
-    return <form ref={formRef} className="formListTask">
-        <input
-        className="form-control"
-        type="text"
-        name="name"
-        placeholder="¿Qué piensas hacer?"
-        defaultValue={item.name}
-        onChange={(event) => {
+    return <form ref={formRef}>
+        <div className="input-group mb-3">
+        <span className="input-group-text">Nombre de la Tarea</span>
+        <input type="text" name="name"  defaultValue={item.name}
+            onChange={(event) => {
             setState({ ...state, name: event.target.value })
-        }}>
-        </input>
-        {item.id && <button className="btn btn-secondary" onClick={onEdit}>Actualizar</button>}
-        {!item.id && <button className="btn btn-secondary" onClick={onAdd}>Crear</button>}
+            }}  ></input>
+            {item.id && <button onClick={onEdit}  >Actualizar</button>}
+        {!item.id && <button onClick={onAdd}  >Crear</button>}</div>
+
     </form>
-}
+    }
 
 
-export default Form
+export default TodoForm;

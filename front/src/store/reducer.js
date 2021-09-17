@@ -13,15 +13,12 @@ export function reducer(state, action) {
       todoUpItem.item = {};
       return { ...state, todo: todoUpItem };
     case 'delete-item':
-
       const todoUpDelete = state.todo;
       const listUpdate = todoUpDelete.list.filter((item) => {
         return item.id !== action.id;
       });
       todoUpDelete.list = listUpdate;
       return { ...state, todo: todoUpDelete };
-
-
     case 'update-list':
       const todoUpList = state.todo;
       todoUpList.list = action.list;
@@ -39,10 +36,8 @@ export function reducer(state, action) {
         const newListCategory = state.todo.list;
         newListCategory.push(action.item);
         return { ...state, list: newListCategory }
-
     case 'update-list-category':
         return { ...state, todo : {list: action.list} }
-
     case 'delete-category':
       const tasktUpdates = state.todo.list.filter((task) => {
           return task.id !== action.id;

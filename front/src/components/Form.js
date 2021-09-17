@@ -60,8 +60,9 @@ const Form = () => {
     }
 
 
-    return <form ref={formRef}>
+    return <form ref={formRef} className="formListTask">
         <input
+        className="form-control"
         type="text"
         name="name"
         placeholder="¿Qué piensas hacer hoy?"
@@ -70,8 +71,8 @@ const Form = () => {
             setState({ ...state, name: event.target.value })
         }}>
         </input>
-        {item.id && <button onClick={onEdit}>Actualizar</button>}
-        {!item.id && <button onClick={onAdd}>Crear</button>}
+        {item.id && <button className="btn btn-secondary" onClick={onEdit}>Actualizar</button>}
+        {!item.id && <button className="btn btn-secondary" onClick={onAdd}>Crear</button>}
     </form>
 }
 

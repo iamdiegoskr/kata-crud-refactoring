@@ -1,0 +1,22 @@
+button.btn-action{
+    padding: 8px 14px;
+}
+
+.formListTask{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.formListTask input{
+    width: 300px;
+    padding-right: 20px;
+}
+
+.formListTask button{
+    padding: 10px 40px;
+    margin-left: 30px;
+}
+
+table tr td{
+    padding: 5px;
+}

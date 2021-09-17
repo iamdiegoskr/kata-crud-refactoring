@@ -1,0 +1,14 @@
+header{
+    background: #306dc3;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 12px;
+}
+
+header .title{
+    color: #fff;
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}

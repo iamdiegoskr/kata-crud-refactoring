@@ -7,9 +7,9 @@ const FormCategoryTask = (props) => {
 
     const formRef = useRef(null);
 
-    const { dispatch, state: {item} } = useContext(Store);
+    const { dispatch, state: {todo} } = useContext(Store);
 
-    const [state, setState] = useState({item});
+    const [state, setState] = useState({todo});
 
     const onAdd = (event) => {
         event.preventDefault();
@@ -42,9 +42,11 @@ const FormCategoryTask = (props) => {
         type="text"
         name="name"
         placeholder="Ingrese una categoria de tareas"
+        required
         onChange={(event) => {
             setState({ ...state, name: event.target.value })
-        }}  ></input>
+        }}>
+        </input>
         <button className="btn btn-secondary" onClick={onAdd}>Agregar</button>
         <br/><br/><br/>
     </form>

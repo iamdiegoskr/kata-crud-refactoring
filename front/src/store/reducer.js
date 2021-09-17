@@ -13,12 +13,27 @@ export function reducer(state, action) {
       todoUpItem.item = {};
       return { ...state, todo: todoUpItem };
     case 'delete-item':
+
+      //
+      console.log(state.todo.list); //Arreglo de listas
+      console.log(action); //Id del elemento a eliminar
+
+      //const arrayTask = state.todo.list;
+
+      //arrayTask = {id:1,nameList:"leer":todos:[]}
+      // const updateTask = arrayTask.filter((task)=>{
+      //   return task.
+      // })
+
+      //
       const todoUpDelete = state.todo;
       const listUpdate = todoUpDelete.list.filter((item) => {
         return item.id !== action.id;
       });
       todoUpDelete.list = listUpdate;
       return { ...state, todo: todoUpDelete };
+
+
     case 'update-list':
       const todoUpList = state.todo;
       todoUpList.list = action.list;

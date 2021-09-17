@@ -33,7 +33,7 @@ const ListTask = (props) => {
                         <h3>{task.name}</h3>
                         <button className="btn btn-secondary" onClick={() => onDelete(task.id)}>Eliminar</button>
                     </div>
-                        {/* <Form task={task}/> */}
+                    {/* <Form task={task} todo={state.todo}/> */}
                     <List task={task}/>
                     <hr/>
                 </div>

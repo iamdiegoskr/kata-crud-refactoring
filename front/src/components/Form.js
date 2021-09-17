@@ -3,11 +3,17 @@ import { Store } from "../store/Store";
 
 const HOST_API = "http://localhost:8080/api";
 
-const Form = () => {
+const Form = (props) => {
+
     const formRef = useRef(null);
     const { dispatch, state: { todo } } = useContext(Store);
     const item = todo.item;
     const [state, setState] = useState(item);
+
+    // const formRef = useRef(null);
+    // const { dispatch } = useContext(Store);
+    // const item = todo.item[listId] ? todo.item[listId] : {};
+    // const [state, setState] = useState(item);
 
     const onAdd = (event) => {
     event.preventDefault();

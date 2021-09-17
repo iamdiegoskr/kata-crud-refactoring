@@ -19,13 +19,16 @@ import '../styles/List.css'
         });
     }, [state.todo.list.length,dispatch]);
 
-
     const onDelete = (id) => {
         fetch(HOST_API + "/" + id + "/todo", {
-        method: "DELETE"
+            method: "DELETE"
         }).then((list) => {
-        dispatch({ type: "delete-item", id });
-        });
+            fetch("http://localhost:8080/api/task")
+            .then(response => response.json())
+            .then((list) => {
+            dispatch({ type: "update-list-category", list })
+            })
+        })
     };
 
     const onEdit = (todo) => {

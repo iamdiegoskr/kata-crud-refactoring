@@ -68,7 +68,8 @@ const Form = () => {
         defaultValue={item.name}
         onChange={(event) => {
             setState({ ...state, name: event.target.value })
-        }}  ></input>
+        }}>
+        </input>
         {item.id && <button onClick={onEdit}>Actualizar</button>}
         {!item.id && <button onClick={onAdd}>Crear</button>}
     </form>

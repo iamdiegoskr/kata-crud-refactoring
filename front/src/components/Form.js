@@ -65,7 +65,7 @@ const Form = () => {
         className="form-control"
         type="text"
         name="name"
-        placeholder="¿Qué piensas hacer hoy?"
+        placeholder="¿Qué piensas hacer?"
         defaultValue={item.name}
         onChange={(event) => {
             setState({ ...state, name: event.target.value })

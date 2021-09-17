@@ -1,22 +1,33 @@
 button.btn-action{
-    padding: 8px 14px;
+    padding: 6px 14px;
+    font-size: .8rem;
 }
 
 .formListTask{
     display: flex;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
 }
 
 .formListTask input{
     width: 300px;
-    padding-right: 20px;
+    padding: 0;
+    padding-left: 12px;
+    font-size: 14px;
+    background: #d9e3f1;
 }
 
 .formListTask button{
-    padding: 10px 40px;
-    margin-left: 30px;
+    padding: 8px 36px;
+    margin-left: 18px;
+    font-size: .8rem;
 }
 
 table tr td{
-    padding: 5px;
+    padding: 15px;
+}
+
+.table-task{
+    width: 600px;
+    background: white;
+    border-radius: 8px;
 }

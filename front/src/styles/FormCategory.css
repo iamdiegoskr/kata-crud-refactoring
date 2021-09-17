@@ -1,0 +1,9 @@
+.form-category{
+    display: flex;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.form-category button{
+    margin-left: 14px;
+}

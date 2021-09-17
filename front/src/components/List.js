@@ -3,17 +3,21 @@ import { HOST_API } from '../App';
 import { Store } from "../store/Store";
 import '../styles/List.css'
 
-    export const List = () => {
-    const { dispatch, state: { todo } } = useContext(Store);
-    const currentList = todo.list;
+    export const List = (props) => {
+    const { dispatch, state } = useContext(Store);
+    //const currentList = todo.list;
+
+    //console.log(state.todo.list.find(task => task.id===props.task.id));
+
+
 
     useEffect(() => {
-        fetch(HOST_API + "/todos")
+        fetch("http://localhost:8080/api/task")
         .then(response => response.json())
         .then((list) => {
-            dispatch({ type: "update-list", list });
+            dispatch({ type: "update-list-category", list });
         });
-    }, [dispatch]);
+    }, [state.todo.list.length,dispatch]);
 
 
     const onDelete = (id) => {
@@ -51,7 +55,7 @@ import '../styles/List.css'
         textDecoration: 'line-through'
     };
     return <div>
-        <table>
+        <table className="table-task">
         <thead>
             <tr>
             <td>ID</td>
@@ -60,7 +64,8 @@ import '../styles/List.css'
             </tr>
         </thead>
         <tbody>
-            {currentList.map((todo) => {
+            {
+            state.todo.list.find(task => task.id===props.task.id).todos.map((todo) => {
             return <tr key={todo.id} style={todo.completed ? decorationDone : {}}>
                 <td>{todo.id}</td>
                 <td>{todo.name}</td>

@@ -1,6 +1,5 @@
 
 export function reducer(state, action) {
-  console.log(action.item);
   switch (action.type) {
     case 'update-item':
       const todoUpItem = state.todo;
@@ -32,6 +31,20 @@ export function reducer(state, action) {
       const todoUp = state.todo.list;
       todoUp.push(action.item);
       return { ...state, todo: { list: todoUp, item: {} } };
+
+    case 'add-category':
+        const newListCategory = state.todo.list;
+        newListCategory.push(action.item);
+        return { ...state, list: newListCategory }
+
+    case 'update-list-category':
+        return { ...state, todo : {list: action.list} }
+
+    case 'delete-category':
+      const tasktUpdates = state.todo.list.filter((task) => {
+          return task.id !== action.id;
+      });
+      return { ...state, todo : {list: tasktUpdates} }
     default:
       return state;
   }

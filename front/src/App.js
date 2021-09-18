@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import './styles/App.css'
 import { StoreProvider } from './store/StoreProvider';
 import HeaderApp from './components/Header';

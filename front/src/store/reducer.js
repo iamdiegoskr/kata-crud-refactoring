@@ -31,7 +31,6 @@ export function reducer(state, action) {
       const todoUp = state.todo.list;
       todoUp.push(action.item);
       return { ...state, todo: { list: todoUp, item: {} } };
-
     case 'add-category':
         const newListCategory = state.todo.list;
         newListCategory.push(action.item);

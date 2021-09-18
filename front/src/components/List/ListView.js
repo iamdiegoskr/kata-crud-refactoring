@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import {Store} from "../../store/Store"
 import TodoForm from '../Todo/FormTodo';
 import { List } from '../Todo/ListTodo';
+import Swal from 'sweetalert2'
 import '../../styles/FormCategory.css'
 
 const ListView = (props) => {
@@ -18,11 +19,32 @@ const ListView = (props) => {
     }, [state.todo.list.length, dispatch]);
 
     const onDelete = (id) => {
-        fetch(`http://localhost:8080/api/task/delete/${id}`, {
-            method: "DELETE"
-        }).then((list) => {
-            dispatch({ type: "delete-category", id })
+
+        Swal.fire({
+            title: 'Estas seguro de elimnar la lista?',
+            text: "si lo haces, perderas todas tus tareas",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borrar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:8080/api/task/delete/${id}`, {
+                    method: "DELETE"
+                }).then((list) => {
+                    dispatch({ type: "delete-category", id })
+                })
+
+                Swal.fire(
+                'Eliminado',
+                'tu lista ha sido eliminada',
+                'success'
+            )
+            }
         })
+
     };
 
     return <div>

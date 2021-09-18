@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/task")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TodoListController {
 
     @Autowired

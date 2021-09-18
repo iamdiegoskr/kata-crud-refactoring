@@ -1,3 +1,38 @@
+
+# # # IMPORTANTE.
+
+Nombre de la base de datos creada : **db_todo**
+
+## URL DE LAS APIS.
+
+1. http://localhost:8080/api/task, Obtener todas las listas con sus respectivas tareas.
+1. http://localhost:8080/api/task/{id}, Obtener una lista en especifico con sus taras.
+1. http://localhost:8080/api/task/update, Actualizar una lista (Recibe solo id y nuevo nombre)
+1. http://localhost:8080/api/task/create, Para crear una nueva lista(Solo recibe el nombre)
+1. http://localhost:8080/api/task/delete/{id} Eliminar una lista en especifico
+
+
+------------
+
+1. http://localhost:8080/api/todos, Para obtener todas las tareas en general.
+1. http://localhost:8080/api/todo, Crear tarea, actualizar 
+1. http://localhost:8080/api/{id}/todo, Obtener y eliminar tarea.
+
+IMAGEN VISUAL DEL FRONTEND.
+
+![](https://i.imgur.com/2JaTD8S.png)
+
+Validacion.
+
+![](https://i.imgur.com/0Hlwwpd.png)
+
+![](https://i.imgur.com/NnABrhc.png)
+
+Ventana de confirmacion para eliminar una lista.
+
+![](https://i.imgur.com/KeXKUzE.png)
+
+
 # [Problema]
 
 Pueden ver los siguientes videos para poder comprender la base del código fuente dentro de este repositorio. 
@@ -46,4 +81,5 @@ Hacer un fork en su propio namespace y presentar la solución más valida para s
 Realizar la siguiente representación donde se tiene TO-Do List agripado en listas.
 
 ![alt text]( ./todo-list-kata.gif "Demo funcional del ToDo List")
+
 

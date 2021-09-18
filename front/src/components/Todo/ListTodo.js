@@ -1,15 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import { HOST_API } from '../App';
-import { Store } from "../store/Store";
-import '../styles/List.css'
+import { HOST_API } from '../../App.js';
+import { Store } from "../../store/Store";
+import '../../styles/ListTodo.css'
 
-    export const List = (props) => {
+export const List = (props) => {
+
     const { dispatch, state } = useContext(Store);
-    //const currentList = todo.list;
-
-    //console.log(state.todo.list.find(task => task.id===props.task.id));
-
-
 
     useEffect(() => {
         fetch("http://localhost:8080/api/task")
@@ -73,8 +69,17 @@ import '../styles/List.css'
                 <td>{todo.id}</td>
                 <td>{todo.name}</td>
                 <td><input type="checkbox" defaultChecked={todo.completed} onChange={(event) => onChange(event, todo)}></input></td>
-                <td><button className="btn btn-outline-danger btn-action" onClick={() => onDelete(todo.id)}>Eliminar</button></td>
-                <td><button className="btn btn-outline-info btn-action" onClick={() => onEdit(todo)}>Editar</button></td>
+                <td>
+                    <button
+                    className="btn btn-outline-danger btn-action" onClick={() => onDelete(todo.id)}>
+                    <i className="far fa-trash-alt icon-delete-task"></i>
+                    Eliminar
+                    </button></td>
+                <td>
+                    <button className="btn btn-outline-info btn-action" onClick={() => onEdit(todo)}>
+                    Editar
+                    </button>
+                </td>
             </tr>;
             })}
         </tbody>

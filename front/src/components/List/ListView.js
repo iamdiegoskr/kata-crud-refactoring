@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import {Store} from "../store/Store"
-import Form from './Form'
-import {List} from './List'
-import '../styles/FormCategory.css'
+import {Store} from "../../store/Store"
+import TodoForm from '../Todo/FormTodo';
+import { List } from '../Todo/ListTodo';
+import '../../styles/FormCategory.css'
 
-const ListTask = (props) => {
+const ListView = (props) => {
 
     const { dispatch, state } = useContext(Store);
 
@@ -30,10 +30,12 @@ const ListTask = (props) => {
             {state.todo.list.map((task,index) => {
                 return <div key={index}>
                     <div className="form-category">
-                        <h3>{task.name}</h3>
-                        <button className="btn btn-secondary" onClick={() => onDelete(task.id)}>Eliminar</button>
+                        <h3 className="title-category">{task.name}</h3>
+                        <button className="btn-delete-list" onClick={() => onDelete(task.id)}>
+                        <i className="fas fa-trash-alt"></i>
+                        </button>
                     </div>
-                    {/* <Form task={task} todo={state.todo}/> */}
+                    <TodoForm task={task}/>
                     <List task={task}/>
                     <hr/>
                 </div>
@@ -43,4 +45,4 @@ const ListTask = (props) => {
         </div>
 }
 
-export default ListTask;
+export default ListView;

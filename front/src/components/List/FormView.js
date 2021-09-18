@@ -1,9 +1,9 @@
 
 import React, { useContext, useRef, useState } from 'react'
-import {Store} from "../store/Store"
-import '../styles/FormTask.css'
+import {Store} from "../../store/Store"
+import '../../styles/FormViewList.css'
 
-const FormCategoryTask = (props) => {
+const FormView = (props) => {
 
     const formRef = useRef(null);
 
@@ -14,10 +14,10 @@ const FormCategoryTask = (props) => {
     const onAdd = (event) => {
         event.preventDefault();
 
-    const request = {
-        name: state.name,
-        id: null
-    };
+        const request = {
+            name: state.name,
+            id: null
+        };
 
 
         fetch("http://localhost:8080/api/task/create", {
@@ -28,15 +28,15 @@ const FormCategoryTask = (props) => {
         }
         })
         .then(response => response.json())
-        .then((task) => {
-            dispatch({ type: "add-category", item: task });
+        .then((list) => {
+            dispatch({ type: "add-category", item: list });
             setState({ name: "" });
             formRef.current.reset();
         });
     }
 
 
-    return <form ref={formRef} className="form-add-task">
+    return <form ref={formRef} className="form-add-list">
         <input
         className="form-control me-sm-2"
         type="text"
@@ -47,9 +47,12 @@ const FormCategoryTask = (props) => {
             setState({ ...state, name: event.target.value })
         }}>
         </input>
-        <button className="btn btn-secondary" onClick={onAdd}>Agregar</button>
+        <button className="btn btn-secondary" onClick={onAdd}>
+            <i className="fas fa-plus icon-add-list"></i>
+            Agregar nueva lista
+        </button>
         <br/><br/><br/>
     </form>
 }
 
-export default FormCategoryTask;
+export default FormView;

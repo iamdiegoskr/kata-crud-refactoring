@@ -27,7 +27,8 @@ table tr td{
 }
 
 .table-task{
-    width: 600px;
+    width: 680px;
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 3px 4px 5px 0px #b5b5b5;
 }

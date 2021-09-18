@@ -7,3 +7,21 @@
 .form-category button{
     margin-left: 14px;
 }
+
+.title-category{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 0px 2px #5b62f4;
+    margin: 0;
+    background: #ae52d4;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.btn-delete-list{
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #f04a4a;
+}

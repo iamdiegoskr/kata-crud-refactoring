@@ -43,16 +43,6 @@ const FormView = (props) => {
 
 
     return <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="form-add-list">
-        {/* <input
-        className="form-control me-sm-2"
-        type="text"
-        name="name"
-        placeholder="Ingrese una categoria de tareas"
-        required
-        onChange={(event) => {
-            setState({ ...state, name: event.target.value })
-        }}>
-        </input> */}
         <div className="form-container">
             <input
                 type="text"
@@ -62,10 +52,6 @@ const FormView = (props) => {
             /><br/>
             <input type="submit" className="btn btn-secondary" value="Crear categoria"/>
         </div>
-        {/* <button type="submit" className="btn btn-secondary" onClick={onAdd}>
-            <i className="fas fa-plus icon-add-list"></i>
-            Agregar nueva lista
-        </button>  */}
         <span className="error-empty">{errors.nameList?.type === 'required' && "El nombre de la lista es obligatorio"}</span>
         <br/><br/><br/>
     </form>

@@ -1,13 +1,32 @@
 .form-todo{
-    margin-bottom: 14px;
-    display: flex;
-}
 
-.form-todo input {
-    width: 300px;
-    padding: 6px;
 }
 
 .form-todo .btn-save-todo{
     padding: 6px 32px;
+}
+
+.form-container-tasks{
+    margin-bottom: 14px;
+    display: flex;
+}
+
+.form-container-tasks .input-task,
+.form-container-tasks .input-send-task{
+    padding: 6px;
+}
+
+.form-container-tasks .input-task{
+    width: 300px;
+}
+
+.form-container-tasks .input-send-task{
+    padding: 6px 30px;
+}
+
+.error-task{
+    color: #e52527;
+    margin: 18px;
+    font-size: 1em;
+    font-weight: bold;
 }

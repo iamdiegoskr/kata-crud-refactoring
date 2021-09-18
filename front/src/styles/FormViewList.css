@@ -1,8 +1,19 @@
-.form-add-list input{
-    margin-bottom: 20px;
+.form-add-list .input-listname{
+    width: 300px;
 }
 
 .icon-add-list,
 .icon-delete-task{
     margin-right: 8px;
+}
+
+.form-container{
+    display: flex;
+    margin-bottom: 18px;
+}
+
+.error-empty{
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
 }

@@ -1,9 +1,17 @@
 
 import React, { useContext, useRef, useState } from 'react'
 import {Store} from "../../store/Store"
+import { useForm } from "react-hook-form";
+
 import '../../styles/FormViewList.css'
 
 const FormView = (props) => {
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    const onSubmit = (data) => {
+        onAdd(data.nameList);
+    }
 
     const formRef = useRef(null);
 
@@ -11,14 +19,12 @@ const FormView = (props) => {
 
     const [state, setState] = useState({todo});
 
-    const onAdd = (event) => {
-        event.preventDefault();
+    const onAdd = (data) => {
 
         const request = {
-            name: state.name,
+            name: data,
             id: null
         };
-
 
         fetch("http://localhost:8080/api/task/create", {
         method: "POST",
@@ -36,8 +42,8 @@ const FormView = (props) => {
     }
 
 
-    return <form ref={formRef} className="form-add-list">
-        <input
+    return <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="form-add-list">
+        {/* <input
         className="form-control me-sm-2"
         type="text"
         name="name"
@@ -46,11 +52,21 @@ const FormView = (props) => {
         onChange={(event) => {
             setState({ ...state, name: event.target.value })
         }}>
-        </input>
-        <button className="btn btn-secondary" onClick={onAdd}>
+        </input> */}
+        <div className="form-container">
+            <input
+                type="text"
+                className="form-control me-sm-2 input-listname"
+                placeholder="Ingrese una categoria..."
+                {...register("nameList", {required: true})}
+            /><br/>
+            <input type="submit" className="btn btn-secondary" value="Crear categoria"/>
+        </div>
+        {/* <button type="submit" className="btn btn-secondary" onClick={onAdd}>
             <i className="fas fa-plus icon-add-list"></i>
             Agregar nueva lista
-        </button>
+        </button>  */}
+        <span className="error-empty">{errors.nameList?.type === 'required' && "El nombre de la lista es obligatorio"}</span>
         <br/><br/><br/>
     </form>
 }

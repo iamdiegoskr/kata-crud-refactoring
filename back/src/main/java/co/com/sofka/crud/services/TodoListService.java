@@ -6,7 +6,6 @@ import co.com.sofka.crud.mappers.TodoListMapper;
 import co.com.sofka.crud.repositories.TodoListRepository;
 import co.com.sofka.crud.services.interfaces.ITodoListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

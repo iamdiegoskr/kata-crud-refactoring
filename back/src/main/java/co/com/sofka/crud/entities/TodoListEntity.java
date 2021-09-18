@@ -1,6 +1,7 @@
 package co.com.sofka.crud.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Entity
@@ -12,6 +13,7 @@ public class TodoListEntity {
     private Long id;
 
     @Column
+    @NotEmpty(message = "Nombre de la lista obligatorio")
     private String name;
 
     @Column()

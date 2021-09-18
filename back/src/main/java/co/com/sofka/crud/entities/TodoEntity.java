@@ -1,6 +1,8 @@
 package co.com.sofka.crud.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "todo")
@@ -9,12 +11,14 @@ public class TodoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Nombre de la tarea no puede estar vacio")
     @Column()
     private String name;
 
     @Column()
     private boolean completed;
 
+    @NotNull
     @Column()
     private Long listId;
 

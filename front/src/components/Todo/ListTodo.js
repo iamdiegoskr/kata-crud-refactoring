@@ -76,7 +76,7 @@ export const List = (props) => {
                     Eliminar
                     </button></td>
                 <td>
-                    <button className="btn btn-outline-info btn-action" onClick={() => onEdit(todo)}>
+                    <button className="btn btn-outline-info btn-action btn-edit" onClick={() => onEdit(todo)}>
                     Editar
                     </button>
                 </td>

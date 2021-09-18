@@ -3,6 +3,14 @@ button.btn-action{
     font-size: .8rem;
 }
 
+button.btn-edit{
+    background: #5c087e;
+}
+
+button.btn-edit:hover{
+    background: #3a0250;
+}
+
 .formListTask{
     display: flex;
     margin-bottom: 16px;
